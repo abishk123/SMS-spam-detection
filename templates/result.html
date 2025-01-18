@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMS Classification Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            background-color: #f5f5f5;
+        }
+        .result-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+        .result {
+            font-size: 24px;
+            margin: 20px 0;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .spam {
+            background-color: #ffebee;
+            color: #c62828;
+        }
+        .ham {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+        .back-button {
+            background-color: #2196F3;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .back-button:hover {
+            background-color: #1976D2;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <h1>SMS Classification Result</h1>
+        <div class="result {% if label == 'Spam' %}spam{% else %}ham{% endif %}">
+            This message is classified as: <strong>{{ label }}</strong>
+        </div>
+        <a href="{% url 'home' %}" class="back-button">Classify Another Message</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMS Spam Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            background-color: #f5f5f5;
+        }
+        .form-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            min-height: 100px;
+            font-size: 16px;
+            box-sizing: border-box;
+            resize: vertical;
+        }
+        button {
+            background-color: #2196F3;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #1976D2;
+        }
+        .description {
+            color: #666;
+            margin: 20px 0;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>SMS Spam Detection</h1>
+        <p class="description">
+            Enter your SMS message below to check if it's spam or not. 
+            Our AI model will analyze the content and classify it accordingly.
+        </p>
+        <form method="POST" action="{% url 'classify_message' %}">
+            {% csrf_token %}
+            <textarea name="message" placeholder="Enter your SMS message here..." required></textarea>
+            <button type="submit">Check Message</button>
+        </form>
+    </div>
+</body>
+</html>
