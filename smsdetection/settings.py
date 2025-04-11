@@ -25,9 +25,9 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = 'django-insecure-2-%06rt1g*sp66(3@#-8a)kjae1usf@6b40733se56(ubnj&=u'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['your-render-domain.onrender.com']
 
 
 # Application definition
@@ -131,6 +131,7 @@ from pathlib import Path
 # Set the base directory of the project
 BASE_DIR = Path(__file__).resolve().parent.parent
 import os
+
 # Define templates directory path
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
@@ -138,10 +139,10 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = 'django-insecure-2-%06rt1g*sp66(3@#-8a)kjae1usf@6b40733se56(ubnj&=u'
 
 # Debug mode - Should be False in production
-DEBUG = True
+DEBUG = False
 
 # Allowed hosts list - Empty means only localhost is allowed
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['SMS-SPAM-DETECTION.onrender.com']
 
 # Installed Django apps
 INSTALLED_APPS = [
@@ -157,7 +158,8 @@ INSTALLED_APPS = [
 
 # Middleware - Components that process requests/responses
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',          # Security
+    'django.middleware.security.SecurityMiddleware',         # Security
+    'whitenoise.middleware.WhiteNoiseMiddleware',       # WhiteNoise for serving static files
     'django.contrib.sessions.middleware.SessionMiddleware',   # Session handling
     'django.middleware.common.CommonMiddleware',             # Common features
     'django.middleware.csrf.CsrfViewMiddleware',             # CSRF protection
